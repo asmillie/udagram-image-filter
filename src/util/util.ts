@@ -24,7 +24,6 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
                     .greyscale() // set greyscale
                     .write(__dirname+outpath, (img)=>{
                         const filteredImageUrl = __dirname+outpath;
-                        console.log(filteredImageUrl);
                         resolve(filteredImageUrl);
                     });
             })
@@ -41,6 +40,11 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
 //    files: Array<string> an array of absolute paths to files
 export async function deleteLocalFiles(files:Array<string>): Promise<void> {
     for (const file of files) {
-        fs.unlinkSync(file);
+        try {
+            fs.unlinkSync(file);
+        } catch (e) {
+            console.error(`Error deleting file: ${e}`);
+        }
+        
     }
 }
