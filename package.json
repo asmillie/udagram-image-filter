@@ -7,7 +7,9 @@
     "test": "jest",
     "tsc": "tsc",
     "clean": "rm -rf www/ || true",
-    "build": "npm run clean && npm run tsc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
+    "prebuild":"npm run clean && npm run tsc",
+    "build": "cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && mkdir tmp && zip -r Archive.zip .",
+    "postbuild": "cd ..",
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "start": "node ."
   },
