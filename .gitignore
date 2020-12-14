@@ -34,7 +34,6 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 node_modules
 venv/
-deployment_screenshots/*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
