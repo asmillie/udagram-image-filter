@@ -39,7 +39,7 @@
     "jimp": "^0.16.1"
   },
   "engines": {
-    "node": ">=12.18.3"
+    "node": "12.18.3"
   },
   "jest": {
     "preset": "ts-jest"
