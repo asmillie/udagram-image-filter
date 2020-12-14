@@ -22,12 +22,12 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
                     .resize(256, 256) // resize
                     .quality(60) // set JPEG quality
                     .greyscale() // set greyscale
-                    .write(__dirname+outpath, (img)=>{
+                    .write(__dirname+outpath, () => {
                         const filteredImageUrl = __dirname+outpath;
                         resolve(filteredImageUrl);
                     });
             })
-            .catch(_ => {
+            .catch(() => {
                 reject(`Error opening image file`);
             }); 
     });         
@@ -44,7 +44,6 @@ export async function deleteLocalFiles(files:Array<string>): Promise<void> {
             fs.unlinkSync(file);
         } catch (e) {
             console.error(`Error deleting file: ${e}`);
-        }
-        
+        }        
     }
 }
